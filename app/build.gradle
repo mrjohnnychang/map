@@ -28,6 +28,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     //use 9.2.0 if 10.2.4 is unstable
     compile 'com.google.android.gms:play-services:10.2.4'
-    compile 'com.google.maps.android:android-maps-utils:0.4+'
+    compile 'com.google.maps.android:android-maps-utils:0.5+'
     testCompile 'junit:junit:4.12'
 }

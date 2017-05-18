@@ -1,8 +1,10 @@
 package com.map.map;
 
+
 import android.*;
 import android.Manifest;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.Icon;
 import android.support.v4.app.FragmentActivity;
 import android.app.Activity;
 import android.os.Bundle;
@@ -10,10 +12,22 @@ import android.support.v4.content.ContextCompat;
 
 import com.google.android.gms.maps.*;
 import com.google.android.gms.maps.model.*;
+
+//imports for the iconGenerator
+import android.graphics.Color;
+import android.text.SpannableStringBuilder;
+import android.text.style.StyleSpan;
+
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.maps.android.ui.BubbleIconFactory;
 import com.google.maps.android.ui.IconGenerator;
 
-
-
+import static android.graphics.Typeface.BOLD;
+import static android.graphics.Typeface.ITALIC;
+import static android.text.Spannable.SPAN_EXCLUSIVE_EXCLUSIVE;
 
 
 
@@ -53,7 +67,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .title("SFO T2"));
 
         //set default zoom to SFO zoom level 19
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sfo,19));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sfo, 19));
 
         GoogleMapOptions options = new GoogleMapOptions();
 
@@ -64,15 +78,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .zoomControlsEnabled(true)
                 .zoomGesturesEnabled(true);
 
-
-
-        /*
-        mMap.addMarker(new MarkerOptions()
-                .position(new LatLng(37.616724,-122.381060))
-                .title("Gate 52")
-                .snippet("Gate 52 text"));
-*/
+        //Gate 52 37.616737, -122.381084
+        IconGenerator iconFactory = new IconGenerator(this);
+        addIcon(iconFactory, "G52, Flt #, Tail #, ARR, DEP", new LatLng(37.616737, -122.381084));
 
     }
+    private void addIcon(IconGenerator iconFactory, CharSequence text, LatLng position) {
+        MarkerOptions markerOptions = new MarkerOptions().
+                icon(BitmapDescriptorFactory.fromBitmap(iconFactory.makeIcon(text))).
+                position(position).
+                anchor(iconFactory.getAnchorU(), iconFactory.getAnchorV());
 
+        getMap().addMarker(markerOptions);
+    }
+
+    protected GoogleMap getMap() {
+        return mMap;
+    }
 }
