@@ -14,7 +14,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.maps.android.ui.IconGenerator;
 
-//imports for the iconGenerator
 
 
 
@@ -65,10 +64,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .zoomControlsEnabled(true)
                 .zoomGesturesEnabled(true);
 
-        //G50 37.616881, -122.382309
+
         IconGenerator iconFactory = new IconGenerator(this);
         iconFactory.setBackground(null);
         iconFactory.setTextAppearance(IconGenerator.STYLE_RED);
+        //G50 37.616881, -122.382309
         addIcon(iconFactory, "G50\nVX50\nN50VA\n1200-1300", new LatLng(37.616881, -122.382309));
 
         //g51A
