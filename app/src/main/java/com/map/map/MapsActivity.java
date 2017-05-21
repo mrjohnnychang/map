@@ -1,33 +1,20 @@
 package com.map.map;
 
 
-import android.*;
-import android.Manifest;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.Icon;
-import android.support.v4.app.FragmentActivity;
-import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
-
-import com.google.android.gms.maps.*;
-import com.google.android.gms.maps.model.*;
-
-//imports for the iconGenerator
-import android.graphics.Color;
-import android.text.SpannableStringBuilder;
-import android.text.style.StyleSpan;
+import android.support.v4.app.FragmentActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMapOptions;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.maps.android.ui.BubbleIconFactory;
 import com.google.maps.android.ui.IconGenerator;
 
-import static android.graphics.Typeface.BOLD;
-import static android.graphics.Typeface.ITALIC;
-import static android.text.Spannable.SPAN_EXCLUSIVE_EXCLUSIVE;
+//imports for the iconGenerator
 
 
 
@@ -78,10 +65,29 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .zoomControlsEnabled(true)
                 .zoomGesturesEnabled(true);
 
-        //Gate 52 37.616737, -122.381084
+        //G50 37.616881, -122.382309
         IconGenerator iconFactory = new IconGenerator(this);
-        addIcon(iconFactory, "G52, Flt #, Tail #, ARR, DEP", new LatLng(37.616737, -122.381084));
+        iconFactory.setBackground(null);
+        iconFactory.setTextAppearance(IconGenerator.STYLE_RED);
+        addIcon(iconFactory, "G50\nVX50\nN50VA\n1200-1300", new LatLng(37.616881, -122.382309));
 
+        //g51A
+        addIcon(iconFactory, "G51A\nVX511\nN511VA\n1200-1300", new LatLng(37.617003, -122.381834));
+
+        //G51B 37.616788, -122.381452
+        addIcon(iconFactory, "G51B\nVX512\nN512VA\n1200-1300", new LatLng(37.616788, -122.381452));
+
+        //gate 52 37.616690, -122.381101
+        addIcon(iconFactory, "G52\nVX52\nN52VA\n1200-1300", new LatLng(37.616690, -122.381101));
+
+        //G53 37.616754, -122.380740
+        addIcon(iconFactory, "G53\nVX53\nN53VA\n1200-1300", new LatLng(37.616754, -122.380740));
+
+        //G54A 37.617081, -122.380694
+        addIcon(iconFactory, "G54A\nVX541\nN541VA\n1200-1300", new LatLng(37.617081, -122.380694));
+
+        //G54B 37.617485, -122.380827
+        addIcon(iconFactory, "G54B\nVX542\nN542VA\n1200-1300", new LatLng(37.617485, -122.380827));
     }
     private void addIcon(IconGenerator iconFactory, CharSequence text, LatLng position) {
         MarkerOptions markerOptions = new MarkerOptions().
