@@ -64,31 +64,32 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .zoomControlsEnabled(true)
                 .zoomGesturesEnabled(true);
 
-
         IconGenerator iconFactory = new IconGenerator(this);
         iconFactory.setBackground(null);
         iconFactory.setTextAppearance(IconGenerator.STYLE_RED);
         //G50 37.616881, -122.382309
-        addIcon(iconFactory, "G50\nVX50\nN50VA\n1200-1300", new LatLng(37.616881, -122.382309));
+        addIcon(iconFactory, "G50\nVX50,N50VA\nSFO-LAX,1200", new LatLng(37.616881, -122.382309));
 
         //g51A
-        addIcon(iconFactory, "G51A\nVX511\nN511VA\n1200-1300", new LatLng(37.617003, -122.381834));
+        addIcon(iconFactory, "G51A\nVX511,N511VA\nSFO-SAN,1300", new LatLng(37.617003, -122.381834));
 
         //G51B 37.616788, -122.381452
-        addIcon(iconFactory, "G51B\nVX512\nN512VA\n1200-1300", new LatLng(37.616788, -122.381452));
+        addIcon(iconFactory, "G51B\nVX512,N512VA\nSFO-SEA,1400", new LatLng(37.616788, -122.381452));
 
         //gate 52 37.616690, -122.381101
-        addIcon(iconFactory, "G52\nVX52\nN52VA\n1200-1300", new LatLng(37.616690, -122.381101));
+        addIcon(iconFactory, "G52\nVX52,N52VA\nSFO-PDX,1500", new LatLng(37.616690, -122.381101));
 
         //G53 37.616754, -122.380740
-        addIcon(iconFactory, "G53\nVX53\nN53VA\n1200-1300", new LatLng(37.616754, -122.380740));
+        addIcon(iconFactory, "G53\nVX53,N53VA\nSFO-DEN,1600", new LatLng(37.616754, -122.380740));
 
-        //G54A 37.617081, -122.380694
-        addIcon(iconFactory, "G54A\nVX541\nN541VA\n1200-1300", new LatLng(37.617081, -122.380694));
+        //G54A 37.617079, -122.380656
+        addIcon(iconFactory, "G54A\nVX541,N541VA\nSFO-HNL,1700", new LatLng(37.617079, -122.380656));
 
         //G54B 37.617485, -122.380827
-        addIcon(iconFactory, "G54B\nVX542\nN542VA\n1200-1300", new LatLng(37.617485, -122.380827));
+        addIcon(iconFactory, "G54B\nVX542,N542VA\nSFO-OGG,1800", new LatLng(37.617485, -122.380827));
     }
+
+
     private void addIcon(IconGenerator iconFactory, CharSequence text, LatLng position) {
         MarkerOptions markerOptions = new MarkerOptions().
                 icon(BitmapDescriptorFactory.fromBitmap(iconFactory.makeIcon(text))).
